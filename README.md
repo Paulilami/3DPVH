@@ -1,6 +1,6 @@
-## 3DPVH: A High-Dimensional Cryptographic Approach for Blockchain Hashing
+## 3DPVH: 3D Parallel Vector Hashing
 
-This document delves into the core functionalities and underlying mathematical concepts of 3DPVH (3D Parallel Vector Hashing), a novel cryptographic hashing technique designed to enhance security and data integrity within blockchain environments.
+This document explains  the core functionalities and underlying mathematical concepts of 3DPVH (3D Parallel Vector Hashing), a creative and new cryptographic hashing approach designed to enhance security and data integrity within blockchain environments.
 
 ## Core Functionalities:
 
