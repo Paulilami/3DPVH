@@ -1,6 +1,6 @@
 ## 3DPVH: 3D Parallel Vector Hashing
 
-Hey, here I will show you the main functionalities and mathematical concepts of 3DPVH (3D Parallel Vector Hashing), a creative and new cryptographic hashing idea designed to enhance security and data integrity within blockchain environments.
+Hi guys, here I will show you the main functionalities and mathematical concepts of 3DPVH (3D Parallel Vector Hashing), a creative and new cryptographic hashing idea designed to enhance security and data integrity within blockchain environments.
 
 ## Core Functionalities:
 
