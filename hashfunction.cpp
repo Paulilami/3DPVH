@@ -12,10 +12,8 @@
 #include <crypto++/sha.h>
 #include <crypto++/hex.h>
 
-// Mutex to protect access 
 std::mutex hash_function_mutex_;
 
-// Random number generator
 std::random_device rd;
 std::mt19937 gen(rd());
 std::uniform_int_distribution<int> salt_dist(1, 1000); 
@@ -25,15 +23,12 @@ public:
   std::string hash(const std::vector<double>& feature_vector) const override {
     std::lock_guard<std::mutex> lock(hash_function_mutex_);
 
-    // Generate random salt
     int salt = salt_dist(gen);
 
     std::vector<double> transformed_features = high_dimensional_transform(feature_vector);
 
-    // Chaining salt with transformed features from above
     transformed_features.push_back(salt);
 
-    // Parallelize hashing ...()...
     std::vector<std::future<std::string>> hash_results;
     int num_threads = std::thread::hardware_concurrency();  
     for (int i = 0; i < num_threads; ++i) {
@@ -49,9 +44,7 @@ public:
   }
 
 private:
-      // ... sam2 ...
   std::vector<double> high_dimensional_transform(const std::vector<double>& feature_vector) const {
-    // ... -"-
     return feature_vector;
   }
 
@@ -59,7 +52,6 @@ private:
     CryptoPP::SHA256 hash;
     std::string message;
 
-    // Data to byte array
     std::vector<unsigned char> byte_array(data.size() * sizeof(double));
     memcpy(byte_array.data(), data.data(), byte_array.size());
 
@@ -105,8 +97,7 @@ std::unique_ptr<HashFunction> create_hash_function(const std::string& config_pat
   if (config.contains("reduction_technique")) {
     reduction_technique = config["reduction_technique"];
   } else {
-    reduction_technique = "PCA";  // Example default
+    reduction_technique = "PCA";  
   }
-//... sam2
   return std::make_unique<SecureHashFunction>();
 }
