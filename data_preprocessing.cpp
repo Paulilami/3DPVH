@@ -4,7 +4,6 @@
 #include <cctype>     
 #include <unordered_map>  
 
-// Clean data
 std::string clean_data(const std::string& data) {
   std::string cleaned_data;
   std::remove_copy_if(data.begin(), data.end(), std::back_inserter(cleaned_data),
@@ -19,7 +18,6 @@ std::string normalize_data(const std::string& data) {
   return normalized_data;
 }
 
-// Vectorize data using character n-grams
 std::vector<double> vectorize_data_ngrams(const std::string& data, size_t n) {
   if (n <= 0) {
     throw std::invalid_argument("Invalid n-gram size (must be positive)");
@@ -33,7 +31,6 @@ std::vector<double> vectorize_data_ngrams(const std::string& data, size_t n) {
     
   }
 
-  // ...sam2..
   std::unordered_map<std::string, double> char_ngram_counts;
   for (size_t i = 0; i < cleaned_data.size(); ++i) {
     if (i + n <= cleaned_data.size()) {
@@ -42,12 +39,9 @@ std::vector<double> vectorize_data_ngrams(const std::string& data, size_t n) {
     }
   }
 
-  // ...
-
   return feature_vector;
 }
 
-// Vectorize data using word embeddings (requires pre-trained model)
 std::vector<double> vectorize_data_word2vec(const std::string& data,
                                             const std::vector<std::string>& vocabulary,
                                             const std::unordered_map<std::string, std::vector<double>>& word_embeddings) {
@@ -63,8 +57,6 @@ std::vector<double> vectorize_data_word2vec(const std::string& data,
       }
     }
   }
-
-  // Normalize feature vector
   double norm = std::sqrt(std::inner_product(feature_vector.begin(), feature_vector.end(), feature_vector.begin()));
   if (norm > 0.0) {
     for (size_t i = 0; i < feature_vector.size(); ++i) {
@@ -78,7 +70,6 @@ std::vector<double> vectorize_data_word2vec(const std::string& data,
 std::unordered_map<std::string, std::vector<double>> load_word_embeddings(const std::string& filename) {
  
   std::unordered_map<std::string, std::vector<double>> word_embeddings;
-  // ...
   return word_embeddings;
 }
 
