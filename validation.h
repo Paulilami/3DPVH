@@ -1,6 +1,5 @@
 #include "validation.h"
 
-// 3D endpoint structur defined for sam2 
 struct Point3D {
   double x;
   double y;
